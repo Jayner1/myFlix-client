@@ -29038,7 +29038,7 @@ var MainView = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       movies: [{
         _id: "63361cd1170e226647cef9e4",
-        Title: "Interstellar'",
+        Title: "Interstellar",
         Description: "A team of explorers travel through a wormhole in space in an attempt to ensure the survival of humanity.",
         Genre: {
           Name: "SciFi",
