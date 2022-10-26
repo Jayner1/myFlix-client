@@ -28984,7 +28984,7 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
         className: "label"
       }, "Director: "), /*#__PURE__*/_react.default.createElement("span", {
         className: "value"
-      }, movie.Title)), /*#__PURE__*/_react.default.createElement("div", {
+      }, movie.Director)), /*#__PURE__*/_react.default.createElement("div", {
         className: "movie-description"
       }, /*#__PURE__*/_react.default.createElement("span", {
         className: "label"
@@ -28996,7 +28996,7 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
         className: "label"
       }, "Genre: "), /*#__PURE__*/_react.default.createElement("span", {
         className: "value"
-      }, movie.Description)), /*#__PURE__*/_react.default.createElement("button", {
+      }, movie.Genre)), /*#__PURE__*/_react.default.createElement("button", {
         onClick: function onClick() {
           onBackClick(null);
         }
