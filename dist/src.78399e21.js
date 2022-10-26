@@ -28979,22 +28979,10 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
       }, "Title: "), /*#__PURE__*/_react.default.createElement("span", {
         className: "value"
       }, movie.Title)), /*#__PURE__*/_react.default.createElement("div", {
-        className: "movie-director"
-      }, /*#__PURE__*/_react.default.createElement("span", {
-        className: "label"
-      }, "Director: "), /*#__PURE__*/_react.default.createElement("span", {
-        className: "value"
-      }, movie.Title)), /*#__PURE__*/_react.default.createElement("div", {
         className: "movie-description"
       }, /*#__PURE__*/_react.default.createElement("span", {
         className: "label"
       }, "Description: "), /*#__PURE__*/_react.default.createElement("span", {
-        className: "value"
-      }, movie.Description)), /*#__PURE__*/_react.default.createElement("div", {
-        className: "movie-genre"
-      }, /*#__PURE__*/_react.default.createElement("span", {
-        className: "label"
-      }, "Genre: "), /*#__PURE__*/_react.default.createElement("span", {
         className: "value"
       }, movie.Description)), /*#__PURE__*/_react.default.createElement("button", {
         onClick: function onClick() {
