@@ -34294,7 +34294,7 @@ var MainView = /*#__PURE__*/function (_React$Component) {
         selectedMovie = _this$state.selectedMovie;
       if (movies.length === 0) return /*#__PURE__*/_react.default.createElement("div", {
         className: "main-view"
-      }, "The list is empty!");
+      });
       return /*#__PURE__*/_react.default.createElement("div", {
         className: "main-view"
       }, selectedMovie ? /*#__PURE__*/_react.default.createElement(_movieView.MovieView, {
