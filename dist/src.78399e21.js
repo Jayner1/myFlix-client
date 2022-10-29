@@ -34197,6 +34197,21 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
     return _super.apply(this, arguments);
   }
   _createClass(MovieView, [{
+    key: "keypressCallback",
+    value: function keypressCallback(event) {
+      console.log(event.key);
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      document.addEventListener('keypress', this.keypressCallback);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      document.removeEventListener('keypress', this.keypressCallback);
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this$props = this.props,
