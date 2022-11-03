@@ -1,9 +1,11 @@
-.card {
-    box-shadow: 0 4px 6px 0 rgba(34, 60, 80, .16);
-	transition: all ease-in-out .2s;
+body {
+    background-color: gray;
 }
 
-.card:hover {
-    filter: brightness(.75);
+.card-body {
+    background-color: red;
+}
+.card-body:hover{
+	filter: brightness(.75);
 	box-shadow: 0 8px 12px 0 rgba(34, 60, 80, .16);
 }
