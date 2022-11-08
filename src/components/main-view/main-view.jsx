@@ -32,15 +32,10 @@ export class MainView extends React.Component {
   //     });
   // }
 
-  onLoggedIn(authData) {
-    console.log(authData);
+  onLoggedIn(user) {
     this.setState({
-      user: authData.user.Username
+      user
     });
-  
-    localStorage.setItem('token', authData.token);
-    localStorage.setItem('user', authData.user.Username);
-    this.getMovies(authData.token);
   }
 
 /* When a movie is clicked, this function is invoked and updates the state of the 'selectedMovie' property to that movie */
