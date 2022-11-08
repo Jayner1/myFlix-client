@@ -9,7 +9,7 @@ export function LoginView(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('YOUR_API_URL/login', {
+    axios.post('https://myflix14.herokuapp.com/login', {
         Username: username,
         Password: password
     })
@@ -21,7 +21,7 @@ export function LoginView(props) {
         console.log('no such user')
     });
     };
-    
+
   return (
     <Form>
       <Form.Group controlId="formUsername">
