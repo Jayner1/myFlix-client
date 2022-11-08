@@ -28125,14 +28125,25 @@ class MainView extends (0, _reactDefault.default).Component {
             user: null
         };
     }
-    componentDidMount() {
-        (0, _axiosDefault.default).get("https://myflix14.herokuapp.com/movies").then((response)=>{
-            this.setState({
-                movies: response.data
-            });
-        }).catch((error)=>{
-            console.log(error);
+    // componentDidMount(){
+    //   axios.get('https://myflix14.herokuapp.com/movies')
+    //     .then(response => {
+    //       this.setState({
+    //         movies: response.data
+    //       });
+    //     })
+    //     .catch(error => {
+    //       console.log(error);
+    //     });
+    // }
+    onLoggedIn(authData) {
+        console.log(authData);
+        this.setState({
+            user: authData.user.Username
         });
+        localStorage.setItem("token", authData.token);
+        localStorage.setItem("user", authData.user.Username);
+        this.getMovies(authData.token);
     }
     /* When a movie is clicked, this function is invoked and updates the state of the 'selectedMovie' property to that movie */ setSelectedMovie(movie) {
         this.setState({
@@ -28140,7 +28151,7 @@ class MainView extends (0, _reactDefault.default).Component {
         });
     }
     getMovies(token) {
-        (0, _axiosDefault.default).get("YOUR_API_URL/movies", {
+        (0, _axiosDefault.default).get("https://myflix14.herokuapp.com/movies", {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -28153,16 +28164,7 @@ class MainView extends (0, _reactDefault.default).Component {
             console.log(error);
         });
     }
-    /* When a user successfully logs in, this function updates the 'user' property in state to that particular user */ onLoggedIn(authData) {
-        console.log(authData);
-        this.setState({
-            user: authData.user.Username
-        });
-        localStorage.setItem("token", authData.token);
-        localStorage.setItem("user", authData.user.Username);
-        this.getMovies(authData.token);
-    }
-    render() {
+    /* When a user successfully logs in, this function updates the 'user' property in state to that particular user */ render() {
         const { movies , selectedMovie , user  } = this.state;
         /* If there is no user, the LoginView is rendered.  If there is a user logged in, the user details are passed as a prop to the LoginView */ if (!user) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginView.LoginView), {
             onLoggedIn: (user)=>this.onLoggedIn(user)
