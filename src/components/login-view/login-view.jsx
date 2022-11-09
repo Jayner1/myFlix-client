@@ -7,6 +7,26 @@ export function LoginView(props) {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
 
+  const validate = () => {
+    let isReq = true;
+    if (!username) {
+      setUsernameErr('Username required');
+      isReq = false;
+    } else if (username.length < 5) {
+      setUsernameErr('Username must be 5 or more characters');
+      isReq = false;
+    }
+    if (!password) {
+      setPasswordErr('Password required');
+      isReq = false;
+    } else if (password.length < 6) {
+      setPasswordErr('Password must be 6 or more characters');
+      isReq = false;
+    }
+
+    return isReq;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.post('https://myflix14.herokuapp.com/login', {
