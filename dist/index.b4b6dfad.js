@@ -28151,11 +28151,12 @@ class MainView extends (0, _reactDefault.default).Component {
             user: null
         });
     }
-    /* When a movie is clicked, this function is invoked and updates the state of the 'selectedMovie' property to that movie */ setSelectedMovie(movie) {
-        this.setState({
-            selectedMovie: movie
-        });
-    }
+    // /* When a movie is clicked, this function is invoked and updates the state of the 'selectedMovie' property to that movie */
+    //   setSelectedMovie(movie) {
+    //     this.setState({
+    //       selectedMovie: movie
+    //     });
+    //   }
     getMovies(token) {
         (0, _axiosDefault.default).get("https://myflix14.herokuapp.com/movies", {
             headers: {

@@ -37,8 +37,8 @@ export class MainView extends React.Component {
       user: authData.user.username,
     });
 
-    localStorage.setItem("token", authData.token);
-    localStorage.setItem("user", authData.user.username);
+    localStorage.setItem('token', authData.token);
+    localStorage.setItem('user', authData.user.username);
     this.getMovies(authData.token);
   }
 
@@ -50,12 +50,12 @@ export class MainView extends React.Component {
     });
   }
 
-/* When a movie is clicked, this function is invoked and updates the state of the 'selectedMovie' property to that movie */
-  setSelectedMovie(movie) {
-    this.setState({
-      selectedMovie: movie
-    });
-  }
+// /* When a movie is clicked, this function is invoked and updates the state of the 'selectedMovie' property to that movie */
+//   setSelectedMovie(movie) {
+//     this.setState({
+//       selectedMovie: movie
+//     });
+//   }
 
   getMovies(token) {
     axios.get('https://myflix14.herokuapp.com/movies', {
