@@ -29,18 +29,23 @@ export function LoginView(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('https://myflix14.herokuapp.com/login', {
-        Username: username,
-        Password: password,
-    })
-    .then(response => {
-        const data = response.data;
-        props.onLoggedIn(data);
-    }) 
-    .catch(e => {
-        console.log('no such user')
-    });
-    };
+    const isReq = validate();
+    if (isReq) {
+      axios
+        .post('https://myflix14.herokuapp.com/login', {
+          Username: username,
+          Password: password,
+        })
+        .then((res) => {
+          const data = res.data;
+          props.onLoggedIn(data);
+        })
+        .catch((e) => {
+          console.log('User does not exist');
+        });
+    }
+  };
+
 
   return (
     <Form>
