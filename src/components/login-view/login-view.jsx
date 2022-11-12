@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Form,Button,Card,CardGroup,Container,Col,Row, } from "react-bootstrap";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
@@ -51,21 +52,62 @@ export function LoginView(props) {
     }
   };
 
-
   return (
-    <Form>
-      <Form.Group controlId="formUsername">
-        <Form.Label>Username:</Form.Label>
-        <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
-      </Form.Group>
-
-      <Form.Group controlId="formPassword">
-        <Form.Label>Password:</Form.Label>
-        <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
-      </Form.Group>
-      <Button variant="primary" type="submit" onClick={handleSubmit}>
-        Submit
-      </Button>
-    </Form>
+    <Container className='registration' lg={4}>
+      <Row>
+        <Col className='d-flex justify-content-center'>
+          <CardGroup className='login-signup'>
+            <Card>
+              <Card.Body>
+                <Card.Title className='text-center mb-4'>Login</Card.Title>
+                <Form>
+                  <Form.Group className='mb-3' controlId='formUsername'>
+                    <Form.Control
+                      id='round-form'
+                      type='text'
+                      placeholder='Username'
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                    />
+                    {usernameErr && <p>{usernameErr}</p>}
+                  </Form.Group>
+                  <Form.Group className='mb-3' controlId='formPassword'>
+                    <Form.Control
+                      id='round-form'
+                      type='password'
+                      placeholder='Password'
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                    {/* code added here to display validation error */}
+                    {passwordErr && <p>{passwordErr}</p>}
+                  </Form.Group>
+                  <div className='d-grid gap-2'>
+                    <Button
+                      className='d-flex justify-content-center'
+                      variant='primary'
+                      type='submit'
+                      onClick={handleSubmit}
+                    >
+                      Submit
+                    </Button>
+                  </div>
+                  <p className='mt-5 text-center'>
+                    Don't have an account? <br />
+                    <Button
+                      className='mt-2 d-flex justify-content-center'
+                      variant='primary'
+                      href={"/register"}
+                    >
+                      Sign up
+                    </Button>
+                  </p>
+                </Form>
+              </Card.Body>
+            </Card>
+          </CardGroup>
+        </Col>
+      </Row>
+    </Container>
   );
 }
