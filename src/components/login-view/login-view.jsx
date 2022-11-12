@@ -7,6 +7,9 @@ export function LoginView(props) {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
 
+  const [usernameErr, setUsernameErr] = useState('');
+  const [passwordErr, setPasswordErr] = useState('');  
+
   const validate = () => {
     let isReq = true;
     if (!username) {
