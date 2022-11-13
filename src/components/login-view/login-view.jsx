@@ -61,27 +61,30 @@ export function LoginView(props) {
               <Card.Body>
                 <Card.Title className='text-center mb-4'>Login</Card.Title>
                 <Form>
-                  <Form.Group className='mb-3' controlId='formUsername'>
-                    <Form.Control
-                      id='round-form'
-                      type='text'
-                      placeholder='Username'
-                      value={username}
-                      onChange={(e) => setUsername(e.target.value)}
-                    />
-                    {usernameErr && <p>{usernameErr}</p>}
+          <Form.Group
+            className="login-form-group-username"
+            controlId="formUsername"
+          >
+            <Form.Label>Username:</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            {usernameErr && <p>{usernameErr}</p>}
                   </Form.Group>
-                  <Form.Group className='mb-3' controlId='formPassword'>
-                    <Form.Control
-                      id='round-form'
-                      type='password'
-                      placeholder='Password'
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
-                    {/* code added here to display validation error */}
-                    {passwordErr && <p>{passwordErr}</p>}
-                  </Form.Group>
+                  <Form.Group className="form-group-password" controlId="formPassword">
+            <Form.Label>Password:</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Enter password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            {passwordErr && <p>{passwordErr}</p>}
+          </Form.Group>
+              
                   <div className='d-grid gap-2'>
                     <Button
                       className='d-flex justify-content-center'
