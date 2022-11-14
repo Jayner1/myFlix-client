@@ -43341,7 +43341,6 @@ function ProfileView(props) {
     const [usernameErr, setUsernameErr] = (0, _react.useState)("");
     const [passwordErr, setPasswordErr] = (0, _react.useState)("");
     const [emailErr, setEmailErr] = (0, _react.useState)("");
-    const [birthdayErr, setBirthdayErr] = (0, _react.useState)("");
     const { user , favoriteMovies , removeFavorite , onBackClick  } = props;
     // Validate user inputs
     const validate = ()=>{
@@ -43762,7 +43761,7 @@ function ProfileView(props) {
         columnNumber: 5
     }, this);
 }
-_s(ProfileView, "tPVpsavGbc3Ol2lOxdlDGGKcN5k=");
+_s(ProfileView, "inh2D4xaKqr2dNam+Xg8BctszGI=");
 _c = ProfileView;
 ProfileView.propTypes = {
     user: (0, _propTypesDefault.default).string.isRequired,

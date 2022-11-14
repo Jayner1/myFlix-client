@@ -15,7 +15,7 @@ function ProfileView(props) {
   const [usernameErr, setUsernameErr] = useState('');
   const [passwordErr, setPasswordErr] = useState('');
   const [emailErr, setEmailErr] = useState('');
-  const [birthdayErr, setBirthdayErr] = useState('');
+
   const { user, favoriteMovies, removeFavorite, onBackClick } = props;
 
   // Validate user inputs
