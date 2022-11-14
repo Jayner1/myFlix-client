@@ -1,39 +1,32 @@
-import React, { useState } from "react";
-import {Form,Button,Card,CardGroup,Container,Col,Row,} from "react-bootstrap";
-import axios from "axios";
+import React, { useState } from 'react';
+import axios from 'axios';
+import PropTypes from 'prop-types';
+import { Card, Form, Button } from 'react-bootstrap';
 
-import "./login-view.scss";
+import './login-view.scss';
 
-export function LoginView(props) {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+export default function LoginView(props) {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   // Declare hook for each input
-  const [usernameErr, setUsernameErr] = useState("");
-  const [passwordErr, setPasswordErr] = useState("");
+  const [usernameErr, setUsernameErr] = useState('');
+  const [passwordErr, setPasswordErr] = useState('');
 
-  // validate user inputs
+  // Validate user inputs
   const validate = () => {
     let isReq = true;
     if (!username) {
-      setUsernameErr(<span style={{ color: "red" }}>Username Required!</span>);
+      setUsernameErr('Username required');
       isReq = false;
-    } else if (username.length < 2) {
-      setUsernameErr(
-        <span style={{ color: "red" }}>
-          Username must be 2 characters long!
-        </span>
-      );
+    } else if (username.length < 5) {
+      setUsernameErr('Username must be 5 or more characters');
       isReq = false;
     }
     if (!password) {
-      setPasswordErr(<span style={{ color: "red" }}>Password Required!</span>);
+      setPasswordErr('Password required');
       isReq = false;
     } else if (password.length < 6) {
-      setPassword(
-        <span style={{ color: "red" }}>
-          Password must be 6 characters long!
-        </span>
-      );
+      setPasswordErr('Password must be 6 or more characters');
       isReq = false;
     }
 
@@ -42,81 +35,69 @@ export function LoginView(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    /* Send a request to the server for authentication */
-
     const isReq = validate();
     if (isReq) {
       axios
-        .post("https://myflix14.herokuapp.com/login", {
-          username: username,
-          password: password,
+        .post('https://myflix14.herokuapp.com/login', {
+          Username: username,
+          Password: password,
         })
-        .then((response) => {
-          const data = response.data;
+        .then((res) => {
+          const data = res.data;
           props.onLoggedIn(data);
         })
         .catch((e) => {
-          console.log("No such user");
+          console.log('User does not exist');
         });
     }
   };
 
   return (
-    <Container className='registration' lg={4}>
-      <Row>
-        <Col className='d-flex justify-content-center'>
-          <CardGroup className='login-signup'>
-            <Card>
-              <Card.Body>
-                <Card.Title className='text-center mb-4'>Login</Card.Title>
-                <Form>
-                  <Form.Group className='mb-3' controlId='formUsername'>
-                    <Form.Control
-                      id='round-form'
-                      type='text'
-                      placeholder='Username'
-                      value={username}
-                      onChange={(e) => setUsername(e.target.value)}
-                    />
-                    {usernameErr && <p>{usernameErr}</p>}
-                  </Form.Group>
-                  <Form.Group className='mb-3' controlId='formPassword'>
-                    <Form.Control
-                      id='round-form'
-                      type='password'
-                      placeholder='Password'
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
-                    {/* code added here to display validation error */}
-                    {passwordErr && <p>{passwordErr}</p>}
-                  </Form.Group>
-                  <div className='d-grid gap-2'>
-                    <Button
-                      className='d-flex justify-content-center'
-                      variant='primary'
-                      type='submit'
-                      onClick={handleSubmit}
-                    >
-                      Submit
-                    </Button>
-                  </div>
-                  <p className='mt-5 text-center'>
-                    Don't have an account? <br />
-                    <Button
-                      className='mt-2 d-flex justify-content-center'
-                      variant='primary'
-                      href={"/register"}
-                    >
-                      Sign up
-                    </Button>
-                  </p>
-                </Form>
-              </Card.Body>
-            </Card>
-          </CardGroup>
-        </Col>
-      </Row>
-    </Container>
+    <Card bg="dark" text="light" className="login-card">
+      <Card.Header className="text-center" as="h5">
+        Login
+      </Card.Header>
+      <Card.Body>
+        <Form>
+          <Form.Group
+            className="login-form-group-username"
+            controlId="formUsername"
+          >
+            <Form.Label>Username:</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            {usernameErr && <p>{usernameErr}</p>}
+          </Form.Group>
+
+          <Form.Group className="form-group-password" controlId="formPassword">
+            <Form.Label>Password:</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Enter password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            {passwordErr && <p>{passwordErr}</p>}
+          </Form.Group>
+
+          <Button
+            className="button-login-view"
+            variant="secondary"
+            type="submit"
+            onClick={handleSubmit}
+          >
+            Log in
+          </Button>
+        </Form>
+      </Card.Body>
+    </Card>
   );
 }
+
+LoginView.propTypes = {
+  onLoggedIn: PropTypes.func.isRequired,
+};
