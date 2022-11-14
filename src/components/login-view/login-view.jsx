@@ -1,32 +1,39 @@
-import React, { useState } from 'react';
-import { Form,Button,Card,CardGroup,Container,Col,Row, } from "react-bootstrap";
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import axios from 'axios';
+import React, { useState } from "react";
+import {Form,Button,Card,CardGroup,Container,Col,Row,} from "react-bootstrap";
+import axios from "axios";
 
 import "./login-view.scss";
 
 export function LoginView(props) {
-  const [ username, setUsername ] = useState('');
-  const [ password, setPassword ] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  // Declare hook for each input
+  const [usernameErr, setUsernameErr] = useState("");
+  const [passwordErr, setPasswordErr] = useState("");
 
-  const [usernameErr, setUsernameErr] = useState('');
-  const [passwordErr, setPasswordErr] = useState('');  
-
+  // validate user inputs
   const validate = () => {
     let isReq = true;
     if (!username) {
-      setUsernameErr('Username required');
+      setUsernameErr(<span style={{ color: "red" }}>Username Required!</span>);
       isReq = false;
-    } else if (username.length < 5) {
-      setUsernameErr('Username must be 5 or more characters');
+    } else if (username.length < 2) {
+      setUsernameErr(
+        <span style={{ color: "red" }}>
+          Username must be 2 characters long!
+        </span>
+      );
       isReq = false;
     }
     if (!password) {
-      setPasswordErr('Password required');
+      setPasswordErr(<span style={{ color: "red" }}>Password Required!</span>);
       isReq = false;
-    } else if (password.length < 4) {
-      setPasswordErr('Password must be 6 or more characters');
+    } else if (password.length < 6) {
+      setPassword(
+        <span style={{ color: "red" }}>
+          Password must be 6 characters long!
+        </span>
+      );
       isReq = false;
     }
 
@@ -35,19 +42,21 @@ export function LoginView(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    /* Send a request to the server for authentication */
+
     const isReq = validate();
     if (isReq) {
       axios
-        .post('https://myflix14.herokuapp.com/login', {
-          Username: username,
-          Password: password,
+        .post("https://myflix14.herokuapp.com/login", {
+          username: username,
+          password: password,
         })
-        .then((res) => {
-          const data = res.data;
+        .then((response) => {
+          const data = response.data;
           props.onLoggedIn(data);
         })
         .catch((e) => {
-          console.log('User does not exist');
+          console.log("No such user");
         });
     }
   };
@@ -61,30 +70,27 @@ export function LoginView(props) {
               <Card.Body>
                 <Card.Title className='text-center mb-4'>Login</Card.Title>
                 <Form>
-          <Form.Group
-            className="login-form-group-username"
-            controlId="formUsername"
-          >
-            <Form.Label>Username:</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-            {usernameErr && <p>{usernameErr}</p>}
+                  <Form.Group className='mb-3' controlId='formUsername'>
+                    <Form.Control
+                      id='round-form'
+                      type='text'
+                      placeholder='Username'
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                    />
+                    {usernameErr && <p>{usernameErr}</p>}
                   </Form.Group>
-                  <Form.Group className="form-group-password" controlId="formPassword">
-            <Form.Label>Password:</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Enter password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            {passwordErr && <p>{passwordErr}</p>}
-          </Form.Group>
-              
+                  <Form.Group className='mb-3' controlId='formPassword'>
+                    <Form.Control
+                      id='round-form'
+                      type='password'
+                      placeholder='Password'
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                    {/* code added here to display validation error */}
+                    {passwordErr && <p>{passwordErr}</p>}
+                  </Form.Group>
                   <div className='d-grid gap-2'>
                     <Button
                       className='d-flex justify-content-center'
