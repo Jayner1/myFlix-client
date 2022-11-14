@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import PropTypes from 'prop-types';
 import axios from "axios";
 import { Form, Button, Card } from 'react-bootstrap';
 
@@ -10,7 +9,46 @@ export function RegistrationView(props) {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [birthday, setBirthday] = useState('');
+  const [usernameErr, setUsernameErr] = useState('');
+  const [passwordErr, setPasswordErr] = useState('');
+  const [emailErr, setEmailErr] = useState('');
   
+  const validate = () => {
+    let isReq = true;
+    if (!username) {
+      setUsernameErr(<span style={{ color: "red" }}>Username Required</span>);
+      isReq = false;
+    } else if (username.length < 2) {
+      setUsernameErr(
+        <span style={{ color: "red" }}>
+          Username must have at least 2 characters
+        </span>
+      );
+      isReq = false;
+    }
+    if (!password) {
+      setPasswordErr(<span style={{ color: "red" }}>Password Required</span>);
+      isReq = false;
+    } else if (password.length < 6) {
+      setPasswordErr(
+        <span style={{ color: "red" }}>
+          Password must have at least 6 characters
+        </span>
+      );
+      isReq = false;
+    }
+    if (!email) {
+      setEmailErr(<span style={{ color: "red" }}>Email Required</span>);
+      isReq = false;
+    } else if (email.indexOf("@") === -1) {
+      setEmailErr(
+        <span style={{ color: "red" }}>Please enter correct email address</span>
+      );
+      isReq = false;
+    }
+    return isReq;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(username, password, email, birthday);

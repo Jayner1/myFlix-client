@@ -38964,6 +38964,7 @@ var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _col = require("react-bootstrap/Col");
 var _colDefault = parcelHelpers.interopDefault(_col);
+var _movieViewScss = require("./movie-view.scss");
 class MovieView extends (0, _reactDefault.default).Component {
     keypressCallback(event) {
         console.log(event.key);
@@ -38985,12 +38986,12 @@ class MovieView extends (0, _reactDefault.default).Component {
                         src: movie.ImagePath
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 25,
+                        lineNumber: 27,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 24,
+                    lineNumber: 26,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -39001,7 +39002,7 @@ class MovieView extends (0, _reactDefault.default).Component {
                             children: "Title: "
                         }, void 0, false, {
                             fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 29,
+                            lineNumber: 31,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -39009,13 +39010,13 @@ class MovieView extends (0, _reactDefault.default).Component {
                             children: movie.Title
                         }, void 0, false, {
                             fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 30,
+                            lineNumber: 32,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 28,
+                    lineNumber: 30,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -39026,7 +39027,7 @@ class MovieView extends (0, _reactDefault.default).Component {
                             children: "Description: "
                         }, void 0, false, {
                             fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 34,
+                            lineNumber: 36,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -39034,13 +39035,13 @@ class MovieView extends (0, _reactDefault.default).Component {
                             children: movie.Description
                         }, void 0, false, {
                             fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 35,
+                            lineNumber: 37,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 33,
+                    lineNumber: 35,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Link, {
@@ -39050,12 +39051,12 @@ class MovieView extends (0, _reactDefault.default).Component {
                         children: "Director"
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 39,
+                        lineNumber: 41,
                         columnNumber: 9
                     }, this)
                 }, void 0, false, {
                     fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 38,
+                    lineNumber: 40,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Link, {
@@ -39065,12 +39066,12 @@ class MovieView extends (0, _reactDefault.default).Component {
                         children: "Genre"
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 43,
+                        lineNumber: 45,
                         columnNumber: 9
                     }, this)
                 }, void 0, false, {
                     fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 42,
+                    lineNumber: 44,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -39080,13 +39081,13 @@ class MovieView extends (0, _reactDefault.default).Component {
                     children: "Back"
                 }, void 0, false, {
                     fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 46,
+                    lineNumber: 48,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/movie-view/movie-view.jsx",
-            lineNumber: 23,
+            lineNumber: 25,
             columnNumber: 9
         }, this);
     }
@@ -39115,7 +39116,7 @@ MovieView.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","react-bootstrap/Col":"2L2I6","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"3U8r7":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","react-bootstrap/Col":"2L2I6","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./movie-view.scss":"jnlR5"}],"jnlR5":[function() {},{}],"3U8r7":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$789c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -39128,8 +39129,6 @@ parcelHelpers.export(exports, "RegistrationView", ()=>RegistrationView);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _propTypes = require("prop-types");
-var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _reactBootstrap = require("react-bootstrap");
@@ -39141,6 +39140,88 @@ function RegistrationView(props) {
     const [password, setPassword] = (0, _react.useState)("");
     const [email, setEmail] = (0, _react.useState)("");
     const [birthday, setBirthday] = (0, _react.useState)("");
+    const [usernameErr, setUsernameErr] = (0, _react.useState)("");
+    const [passwordErr, setPasswordErr] = (0, _react.useState)("");
+    const [emailErr, setEmailErr] = (0, _react.useState)("");
+    const validate = ()=>{
+        let isReq = true;
+        if (!username) {
+            setUsernameErr(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                style: {
+                    color: "red"
+                },
+                children: "Username Required"
+            }, void 0, false, {
+                fileName: "src/components/registration-view/registration-view.jsx",
+                lineNumber: 19,
+                columnNumber: 22
+            }, this));
+            isReq = false;
+        } else if (username.length < 2) {
+            setUsernameErr(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                style: {
+                    color: "red"
+                },
+                children: "Username must have at least 2 characters"
+            }, void 0, false, {
+                fileName: "src/components/registration-view/registration-view.jsx",
+                lineNumber: 23,
+                columnNumber: 9
+            }, this));
+            isReq = false;
+        }
+        if (!password) {
+            setPasswordErr(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                style: {
+                    color: "red"
+                },
+                children: "Password Required"
+            }, void 0, false, {
+                fileName: "src/components/registration-view/registration-view.jsx",
+                lineNumber: 30,
+                columnNumber: 22
+            }, this));
+            isReq = false;
+        } else if (password.length < 6) {
+            setPasswordErr(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                style: {
+                    color: "red"
+                },
+                children: "Password must have at least 6 characters"
+            }, void 0, false, {
+                fileName: "src/components/registration-view/registration-view.jsx",
+                lineNumber: 34,
+                columnNumber: 9
+            }, this));
+            isReq = false;
+        }
+        if (!email) {
+            setEmailErr(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                style: {
+                    color: "red"
+                },
+                children: "Email Required"
+            }, void 0, false, {
+                fileName: "src/components/registration-view/registration-view.jsx",
+                lineNumber: 41,
+                columnNumber: 19
+            }, this));
+            isReq = false;
+        } else if (email.indexOf("@") === -1) {
+            setEmailErr(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                style: {
+                    color: "red"
+                },
+                children: "Please enter correct email address"
+            }, void 0, false, {
+                fileName: "src/components/registration-view/registration-view.jsx",
+                lineNumber: 45,
+                columnNumber: 9
+            }, this));
+            isReq = false;
+        }
+        return isReq;
+    };
     const handleSubmit = (e)=>{
         e.preventDefault();
         console.log(username, password, email, birthday);
@@ -39169,7 +39250,7 @@ function RegistrationView(props) {
                 children: "Register"
             }, void 0, false, {
                 fileName: "src/components/registration-view/registration-view.jsx",
-                lineNumber: 37,
+                lineNumber: 75,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
@@ -39183,7 +39264,7 @@ function RegistrationView(props) {
                                     children: "Username:"
                                 }, void 0, false, {
                                     fileName: "src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 46,
+                                    lineNumber: 84,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -39194,20 +39275,20 @@ function RegistrationView(props) {
                                     required: true
                                 }, void 0, false, {
                                     fileName: "src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 47,
+                                    lineNumber: 85,
                                     columnNumber: 13
                                 }, this),
                                 usernameErr && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                     children: usernameErr
                                 }, void 0, false, {
                                     fileName: "src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 54,
+                                    lineNumber: 92,
                                     columnNumber: 29
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/registration-view/registration-view.jsx",
-                            lineNumber: 42,
+                            lineNumber: 80,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
@@ -39218,7 +39299,7 @@ function RegistrationView(props) {
                                     children: "Password:"
                                 }, void 0, false, {
                                     fileName: "src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 60,
+                                    lineNumber: 98,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -39230,20 +39311,20 @@ function RegistrationView(props) {
                                     required: true
                                 }, void 0, false, {
                                     fileName: "src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 61,
+                                    lineNumber: 99,
                                     columnNumber: 13
                                 }, this),
                                 passwordErr && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                     children: passwordErr
                                 }, void 0, false, {
                                     fileName: "src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 69,
+                                    lineNumber: 107,
                                     columnNumber: 29
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/registration-view/registration-view.jsx",
-                            lineNumber: 56,
+                            lineNumber: 94,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
@@ -39254,7 +39335,7 @@ function RegistrationView(props) {
                                     children: "Email:"
                                 }, void 0, false, {
                                     fileName: "src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 75,
+                                    lineNumber: 113,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -39265,20 +39346,20 @@ function RegistrationView(props) {
                                     required: true
                                 }, void 0, false, {
                                     fileName: "src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 76,
+                                    lineNumber: 114,
                                     columnNumber: 13
                                 }, this),
                                 emailErr && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                     children: emailErr
                                 }, void 0, false, {
                                     fileName: "src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 83,
+                                    lineNumber: 121,
                                     columnNumber: 26
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/registration-view/registration-view.jsx",
-                            lineNumber: 71,
+                            lineNumber: 109,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
@@ -39288,7 +39369,7 @@ function RegistrationView(props) {
                                     children: "Date of birth:"
                                 }, void 0, false, {
                                     fileName: "src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 86,
+                                    lineNumber: 124,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -39298,20 +39379,20 @@ function RegistrationView(props) {
                                     placeholder: "Enter your birthday"
                                 }, void 0, false, {
                                     fileName: "src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 87,
+                                    lineNumber: 125,
                                     columnNumber: 13
                                 }, this),
                                 birthdayErr && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                     children: birthdayErr
                                 }, void 0, false, {
                                     fileName: "src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 93,
+                                    lineNumber: 131,
                                     columnNumber: 29
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/registration-view/registration-view.jsx",
-                            lineNumber: 85,
+                            lineNumber: 123,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
@@ -39322,28 +39403,28 @@ function RegistrationView(props) {
                             children: "Submit"
                         }, void 0, false, {
                             fileName: "src/components/registration-view/registration-view.jsx",
-                            lineNumber: 95,
+                            lineNumber: 133,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/registration-view/registration-view.jsx",
-                    lineNumber: 41,
+                    lineNumber: 79,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/components/registration-view/registration-view.jsx",
-                lineNumber: 40,
+                lineNumber: 78,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/registration-view/registration-view.jsx",
-        lineNumber: 36,
+        lineNumber: 74,
         columnNumber: 5
     }, this);
 }
-_s(RegistrationView, "tdA1KK8yaZidqYo0wscqshHt/KE=");
+_s(RegistrationView, "inh2D4xaKqr2dNam+Xg8BctszGI=");
 _c = RegistrationView;
 RegistrationView.propTypes = {};
 var _c;
@@ -39354,7 +39435,7 @@ $RefreshReg$(_c, "RegistrationView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","axios":"jo6P5","./registration-view.scss":"clIxH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-bootstrap":"3AD9A"}],"clIxH":[function() {},{}],"9tpci":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","./registration-view.scss":"clIxH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-bootstrap":"3AD9A"}],"clIxH":[function() {},{}],"9tpci":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$ad4a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
