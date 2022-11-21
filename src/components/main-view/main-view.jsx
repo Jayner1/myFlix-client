@@ -1,8 +1,14 @@
 import React from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+
+import { connect } from 'react-redux';
+
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+
+import { setMovies } from '../../actions/actions';
+import MoviesList from '../movies-list/movies-list';
 
 import "./main-view.scss";
 
@@ -20,9 +26,8 @@ export class MainView extends React.Component {
 
   constructor(){
     super();
+
     this.state = {
-      movies: [],
-      selectedMovie: null,
       user: null
     };
   }
@@ -37,14 +42,27 @@ export class MainView extends React.Component {
     }
   }
 
+getMovies(token) {
+    axios.get('https://myflix14.herokuapp.com/movies', {
+      headers: { Authorization: `Bearer ${token}`}
+    })
+    .then(response => {
+      // Assign the result to the state
+      this.props.setMovies(response.data);
+      })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
   onLoggedIn(authData) {
     console.log(authData);
     this.setState({
-      user: authData.user.username,
+      user: authData.user.Username
     });
-
+  
     localStorage.setItem('token', authData.token);
-    localStorage.setItem('user', authData.user.username);
+    localStorage.setItem('user', authData.user.Username);
     this.getMovies(authData.token);
   }
 
@@ -56,38 +74,9 @@ export class MainView extends React.Component {
     });
   }
 
-// /* When a movie is clicked, this function is invoked and updates the state of the 'selectedMovie' property to that movie */
-//   setSelectedMovie(movie) {
-//     this.setState({
-//       selectedMovie: movie
-//     });
-//   }
-
-  getMovies(token) {
-    axios.get('https://myflix14.herokuapp.com/movies', {
-      headers: { Authorization: `Bearer ${token}`}
-    })
-    .then(response => {
-      // Assign the result to the state
-      this.setState({
-        movies: response.data
-      });
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-  }
-
-/* When a user successfully logs in, this function updates the 'user' property in state to that particular user */
-
   render() {
-    const { movies, selectedMovie, user } = this.state;
-
-    /* If there is no user, the LoginView is rendered.  If there is a user logged in, the user details are passed as a prop to the LoginView */
-    if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
-
-    // Before the movies have been loaded
-    if (movies.length === 0) return <div className="main-view" />;
+    let { movies } = this.props;
+    let { user } = this.state;
 
     return (
       <Router>
@@ -215,4 +204,8 @@ export class MainView extends React.Component {
   }
 }
 
-export default MainView;
+let mapStateToProps = state => {
+  return { movies: state.movies }
+}
+
+export default connect(mapStateToProps, { setMovies } )(mainView);
