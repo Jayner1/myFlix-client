@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import { connect } from 'react-redux';
 
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Redirect } from "react-router-dom";
 import { Col, Row } from 'react-bootstrap';
 
 import { setMovies } from '../../actions/actions';
@@ -79,6 +79,7 @@ class MainView extends React.Component {
       <Router>
         <Menubar user={user} />
         <Row className="main-view justify-content-md-center">
+        <Routes>
           <Route exact path="/" render={() => {
             if (!user) return <Col>
               <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
@@ -143,7 +144,9 @@ class MainView extends React.Component {
               );
             }}
           />
+           </Routes>
         </Row>
+       
       </Router>
     );
   }
