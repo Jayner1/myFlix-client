@@ -1,63 +1,50 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 
-export default function NavBar({ user }) {
-  const onLoggedOut = () => {
+import React from "react";
+import { Navbar, Container, Nav, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
+//import './navbar.scss'
+
+export function Menubar({ user, onLoggedOut }) {
+
+  const handleLogOut = (e) => {
+    e.preventDefault();
     localStorage.clear();
     window.open('/', '_self');
+    onLoggedOut(user);
   };
 
   const isAuth = () => {
-    if (typeof window == 'undefined') {
+    if (typeof window == "undefined") {
       return false;
     }
-    if (localStorage.getItem('token')) {
-      return localStorage.getItem('token');
+    if (localStorage.getItem("token")) {
+      return localStorage.getItem("token")
     } else {
       return false;
     }
   };
 
   return (
-    <Navbar
-      className="main-nav"
-      sticky="top"
-      bg="dark"
-      expand="lg"
-      variant="dark"
-    >
+    <Navbar className="navbar-custom mt-4" sticky="top" bg="dark"
+      expand="xl" style={{ borderRadius: '15px' }}>
       <Container>
-        <Navbar.Brand className="navbar-logo" as={Link} to="/">
-          myFlix
-        </Navbar.Brand>
+        <Navbar.Brand className="navbar-logo text-white text-center" href="/">CINEMA SPARK</Navbar.Brand>
+        <p className="text-white-50 center-block mt-3">a movie library app</p>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="mal-auto">
+          <Nav className="text-center ml-auto">
             {isAuth() && (
-              <Nav.Link as={Link} to={`/users/${user}`}>
-                {user}
-              </Nav.Link>
+              <Nav.Link className="text-white-50 text-center" href={`/users/${user}`}>{user}</Nav.Link>
             )}
             {isAuth() && (
-              <Button
-                variant="link"
-                onClick={() => {
-                  onLoggedOut();
-                }}
-              >
-                Logout
-              </Button>
+              <Button className="text-white" variant="link" onClick={handleLogOut}>Logout</Button>
             )}
             {!isAuth() && (
-              <Nav.Link as={Link} to="/">
-                Login
-              </Nav.Link>
+              <Nav.Link className="text-white" href="/">Log In</Nav.Link>
             )}
             {!isAuth() && (
-              <Nav.Link as={Link} to="/register">
-                Sign Up
-              </Nav.Link>
+              <Nav.Link className="text-white" href="/register">Sign Up</Nav.Link>
             )}
           </Nav>
         </Navbar.Collapse>
@@ -65,3 +52,5 @@ export default function NavBar({ user }) {
     </Navbar>
   );
 }
+
+export default Menubar
