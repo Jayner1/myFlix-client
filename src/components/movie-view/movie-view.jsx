@@ -12,7 +12,7 @@ export class MovieView extends React.Component {
     e.preventDefault();
     axios
       .post(
-        `https://cinema-spark.herokuapp.com/users/${localStorage.getItem(
+        `https://myflix14.herokuapp.com/users/${localStorage.getItem(
           "user"
         )}/Movies/${movie._id}`,
         { username: localStorage.getItem("user") },

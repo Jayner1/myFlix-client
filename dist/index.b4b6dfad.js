@@ -51871,7 +51871,7 @@ class MovieView extends (0, _reactDefault.default).Component {
     addFavoriteMovie(e) {
         const { movie  } = this.props;
         e.preventDefault();
-        (0, _axiosDefault.default).post(`https://cinema-spark.herokuapp.com/users/${localStorage.getItem("user")}/Movies/${movie._id}`, {
+        (0, _axiosDefault.default).post(`https://myflix14.herokuapp.com/users/${localStorage.getItem("user")}/Movies/${movie._id}`, {
             username: localStorage.getItem("user")
         }, {
             headers: {
@@ -52841,7 +52841,7 @@ class ProfileView extends (0, _reactDefault.default).Component {
     }
     getUser = (token)=>{
         const Username = localStorage.getItem("user");
-        (0, _axiosDefault.default).get(`https://cinema-spark.herokuapp.com/users/${Username}`, {
+        (0, _axiosDefault.default).get(`https://myflix14.herokuapp.com/users/${Username}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -52861,7 +52861,7 @@ class ProfileView extends (0, _reactDefault.default).Component {
         e.preventDefault();
         const Username = localStorage.getItem("user");
         const token = localStorage.getItem("token");
-        (0, _axiosDefault.default).put(`https://cinema-spark.herokuapp.com/users/${Username}`, {
+        (0, _axiosDefault.default).put(`https://myflix14.herokuapp.com/users/${Username}`, {
             username: this.state.Username,
             password: this.state.Password,
             Email: this.state.Email,
@@ -52890,7 +52890,7 @@ class ProfileView extends (0, _reactDefault.default).Component {
     onRemoveFavorite = (movie)=>{
         const Username = localStorage.getItem("user");
         const token = localStorage.getItem("token");
-        (0, _axiosDefault.default).delete(`https://cinema-spark.herokuapp.com/users/${Username}/movies/${movie._id}`, {
+        (0, _axiosDefault.default).delete(`https://myflix14.herokuapp.com/users/${Username}/movies/${movie._id}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -52906,7 +52906,7 @@ class ProfileView extends (0, _reactDefault.default).Component {
     onDeleteUser() {
         const Username = localStorage.getItem("user");
         const token = localStorage.getItem("token");
-        (0, _axiosDefault.default).delete(`https://cinema-spark.herokuapp.com/users/${Username}`, {
+        (0, _axiosDefault.default).delete(`https://myflix14.herokuapp.com/users/${Username}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -53377,7 +53377,6 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactBootstrap = require("react-bootstrap");
-var _reactRouterDom = require("react-router-dom");
 function Menubar({ user , onLoggedOut  }) {
     const handleLogOut = (e)=>{
         e.preventDefault();
@@ -53406,7 +53405,7 @@ function Menubar({ user , onLoggedOut  }) {
                     children: "CINEMA SPARK"
                 }, void 0, false, {
                     fileName: "src/components/navbar/navbar.jsx",
-                    lineNumber: 32,
+                    lineNumber: 31,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -53414,14 +53413,14 @@ function Menubar({ user , onLoggedOut  }) {
                     children: "a movie library app"
                 }, void 0, false, {
                     fileName: "src/components/navbar/navbar.jsx",
-                    lineNumber: 33,
+                    lineNumber: 32,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar).Toggle, {
                     "aria-controls": "responsive-navbar-nav"
                 }, void 0, false, {
                     fileName: "src/components/navbar/navbar.jsx",
-                    lineNumber: 34,
+                    lineNumber: 33,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar).Collapse, {
@@ -53435,7 +53434,7 @@ function Menubar({ user , onLoggedOut  }) {
                                 children: user
                             }, void 0, false, {
                                 fileName: "src/components/navbar/navbar.jsx",
-                                lineNumber: 38,
+                                lineNumber: 37,
                                 columnNumber: 15
                             }, this),
                             isAuth() && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
@@ -53445,7 +53444,7 @@ function Menubar({ user , onLoggedOut  }) {
                                 children: "Logout"
                             }, void 0, false, {
                                 fileName: "src/components/navbar/navbar.jsx",
-                                lineNumber: 41,
+                                lineNumber: 40,
                                 columnNumber: 15
                             }, this),
                             !isAuth() && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
@@ -53454,7 +53453,7 @@ function Menubar({ user , onLoggedOut  }) {
                                 children: "Log In"
                             }, void 0, false, {
                                 fileName: "src/components/navbar/navbar.jsx",
-                                lineNumber: 44,
+                                lineNumber: 43,
                                 columnNumber: 15
                             }, this),
                             !isAuth() && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
@@ -53463,29 +53462,29 @@ function Menubar({ user , onLoggedOut  }) {
                                 children: "Sign Up"
                             }, void 0, false, {
                                 fileName: "src/components/navbar/navbar.jsx",
-                                lineNumber: 47,
+                                lineNumber: 46,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/navbar/navbar.jsx",
-                        lineNumber: 36,
+                        lineNumber: 35,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "src/components/navbar/navbar.jsx",
-                    lineNumber: 35,
+                    lineNumber: 34,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/navbar/navbar.jsx",
-            lineNumber: 31,
+            lineNumber: 30,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "src/components/navbar/navbar.jsx",
-        lineNumber: 29,
+        lineNumber: 28,
         columnNumber: 5
     }, this);
 }
@@ -53499,6 +53498,6 @@ $RefreshReg$(_c, "Menubar");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lJZlQ":[function() {},{}]},["1xC6H","jVvJi","d8Dch"], "d8Dch", "parcelRequireaec4")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lJZlQ":[function() {},{}]},["1xC6H","jVvJi","d8Dch"], "d8Dch", "parcelRequireaec4")
 
 //# sourceMappingURL=index.b4b6dfad.js.map
