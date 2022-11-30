@@ -8,6 +8,7 @@ import { Col, Row } from 'react-bootstrap';
 
 import { setMovies } from '../../actions/actions';
 
+// we haven't written this one yet
 import MoviesList from '../movies-list/movies-list';
 
 import { Menubar } from '../navbar/navbar';

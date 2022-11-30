@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar, Container, Nav, Button } from "react-bootstrap";
-
+import { Link } from "react-router-dom";
 //import './navbar.scss'
 
 export function Menubar({ user, onLoggedOut }) {
@@ -27,6 +27,7 @@ export function Menubar({ user, onLoggedOut }) {
     <Navbar className="navbar-custom mt-4" sticky="top" bg="dark"
       expand="xl" style={{ borderRadius: '15px' }}>
       <Container>
+      <Link to="/"></Link>
         <Navbar.Brand className="navbar-logo text-white text-center" href="/">My Flix</Navbar.Brand>
         <p className="text-white-50 center-block mt-3">A Movie App</p>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
