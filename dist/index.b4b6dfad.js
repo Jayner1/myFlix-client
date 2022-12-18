@@ -28219,8 +28219,8 @@ var _reselect = require("reselect");
 // src/getDefaultMiddleware.ts
 var _reduxThunk = require("redux-thunk");
 var _reduxThunkDefault = parcelHelpers.interopDefault(_reduxThunk);
-var process = require("process");
 var global = arguments[3];
+var process = require("process");
 var __extends = undefined && undefined.__extends || function() {
     var extendStatics = function(d, b) {
         extendStatics = Object.setPrototypeOf || ({
@@ -47835,7 +47835,7 @@ $RefreshReg$(_c, "MoviesList");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","../movie-card/movie-card":"bwuIu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-bootstrap":"3AD9A","../../features/visibilityfilter-reducer":"33ijP"}],"bwuIu":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","react-redux":"bdVon","../../features/visibilityfilter-reducer":"33ijP","../movie-card/movie-card":"bwuIu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bwuIu":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$67b2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
