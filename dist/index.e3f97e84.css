@@ -8,15 +8,25 @@
   background-color: #008bad;
 }
 
+<<<<<<< HEAD
 .nav {
   background-color: #008bad;
 }
 
+=======
+>>>>>>> 4a952d312500b67f164d060421a59facccc8e3c2
 .text {
   color: #fff;
   text-decoration: none;
 }
 
+<<<<<<< HEAD
+=======
+.nav {
+  background-color: #008bad;
+}
+
+>>>>>>> 4a952d312500b67f164d060421a59facccc8e3c2
 .text-center {
   text-decoration: none;
 }
@@ -25,14 +35,25 @@
 
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 4a952d312500b67f164d060421a59facccc8e3c2
 .register {
   color: #008bad;
 }
 
 .login {
+<<<<<<< HEAD
   color: #008bad;
 }
 
+=======
+  color: #009926;
+}
+
+
+
+>>>>>>> 4a952d312500b67f164d060421a59facccc8e3c2
 /*# sourceMappingURL=index.e3f97e84.css.map */

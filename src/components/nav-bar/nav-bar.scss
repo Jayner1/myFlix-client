@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 $color: hsl(192, 100%, 34%);
 
 .nav {
@@ -7,4 +8,15 @@ $color: hsl(192, 100%, 34%);
 .text {
   color: white;
   text-decoration: none;
+=======
+$color: hsl(192, 100%, 34%);
+
+.nav {
+  background-color: $color;
+}
+
+.text {
+  color: white;
+  text-decoration: none;
+>>>>>>> 4a952d312500b67f164d060421a59facccc8e3c2
 }
