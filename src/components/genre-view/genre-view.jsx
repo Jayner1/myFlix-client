@@ -1,56 +1,51 @@
-<<<<<<< HEAD
-import React from "react";
-import { Button, Card, Row, Col } from "react-bootstrap";
-import { useParams, Link } from "react-router-dom";
-import "./genre-view.scss";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 export function GenreView ({movies}) {
 
-	const selectGenre = () => {
-		const { name } = useParams();
-		return movies.find((m) => m.Genre.Name === name);
-	}
+export class GenreView extends React.Component {
+  keypressCallback(event) {
+    console.log(event.key);
+  }
 
-	return (
-		<Row className="justify-content-center">
-			<Col md={8} className="mt-3">
-				<Card className="genre-view p-3">
-					<Card.Title>Genre</Card.Title>
-					<Card.Subtitle>{selectGenre().Genre.Name}</Card.Subtitle>
-					<Card.Text>{selectGenre().Genre.Description}</Card.Text>
-					<Link to={-1} className="mt-2">
-						<Button variant="outline-secondary">Back</Button>
-					</Link>
-				</Card>
-			</Col>
-		</Row>
-	);
-=======
-import React from "react";
-import { Button, Card, Row, Col } from "react-bootstrap";
-import { useParams, Link } from "react-router-dom";
-import "./genre-view.scss";
+  componentDidMount() {
+    document.addEventListener('keypress', this.keypressCallback);
+  }
+  render() {
+    const { genre, onBackClick } = this.props;
 
-export function GenreView ({movies}) {
-
-	const selectGenre = () => {
-		const { name } = useParams();
-		return movies.find((m) => m.Genre.Name === name);
-	}
-
-	return (
-		<Row className="justify-content-center">
-			<Col md={8} className="mt-3">
-				<Card className="genre-view p-3">
-					<Card.Title>Genre</Card.Title>
-					<Card.Subtitle>{selectGenre().Genre.Name}</Card.Subtitle>
-					<Card.Text>{selectGenre().Genre.Description}</Card.Text>
-					<Link to={-1} className="mt-2">
-						<Button variant="outline-secondary">Back</Button>
-					</Link>
-				</Card>
-			</Col>
-		</Row>
-	);
->>>>>>> 4a952d312500b67f164d060421a59facccc8e3c2
-	}
+    return (
+      <Container>
+        <Card className='mt-5 bg-dark text-white' style={{ borderRadius: '15px' }}>
+          <Card.Body>
+            <Row className="mt-3 pl-3 pr-3">
+              <Col className="label">Genre:</Col>
+              <Col className="value">{genre.Name}</Col>
+            </Row>
+          </Card.Body>
+          <Card.Body>
+            <Row className="mt-3 pl-3 pr-3">
+              <Col className="label">Description:</Col>
+              <Col className="value">{genre.Description}</Col>
+            </Row>
+            <Button
+              className='mt-4'
+              onClick={() => {
+                onBackClick();
+              }}
+              variant="primary"
+            >
+              Back
+            </Button>
+          </Card.Body>
+        </Card>
+      </Container >
+    );
+  }
+}
+GenreView.propTypes = {
+  genre: PropTypes.shape({
+    Name: PropTypes.string.isRequired,
+    Description: PropTypes.string.isRequired,
+  }).isRequired,
+};

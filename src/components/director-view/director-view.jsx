@@ -1,60 +1,58 @@
-<<<<<<< HEAD
-import React from "react";
-import { Button, Card, Row, Col } from "react-bootstrap";
-import { useParams, Link } from "react-router-dom";
-import "./director-view.scss";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 export function DirectorView({movies}) {
 
-	const selectDirector = () => {
-		const { name } = useParams();
-		return movies.find((m) => m.Director.Name === name);
-	}
+export class DirectorView extends React.Component {
+    keypressCallback(event) {
+        console.log(event.key);
+    }
 
-	return (
-		<Row className="justify-content-center">
-			<Col md={8}>
-				<Card className="director-view mt-3 p-2">
-					<Card.Title>Director</Card.Title>
-					<Card.Subtitle>{selectDirector().Director.Name}</Card.Subtitle>
-					<Card.Text>{selectDirector().Director.Bio}</Card.Text>
-					<Link to={-1}>
-						<Button variant="outline-secondary mt-2">Back</Button>
-					</Link>
-				</Card>
-			</Col>
-		</Row>
-	);
+    componentDidMount() {
+        document.addEventListener('keypress', this.keypressCallback);
+    }
+
+    render() {
+        const { director, onBackClick } = this.props;
+
+        return (
+            <Container>
+                <Card className='mt-5 bg-dark text-white' style={{ borderRadius: '15px' }}>
+                    <Card.Body>
+                        <Row className="mt-3 pl-3 pr-3">
+                            <Col className="label">Director: </Col>
+                            <Col className="value">{director.Name}</Col>
+                        </Row>
+                        <Row className="mt-3 pl-3 pr-3">
+                            <Col className="label">Bio: </Col>
+                            <Col className="value">{director.Bio}</Col>
+                        </Row>
+                        <Row className="mt-3 pl-3 pr-3">
+                            <Col className="label">Birthday: </Col>
+                            <Col className="value">{director.Birth}</Col>
+                        </Row>
+                        <Button
+                            className="mt-5 ml-2 mb-2"
+                            onClick={() => {
+                                onBackClick();
+                            }}
+                            variant="primary"
+                        >
+                            Back
+                        </Button>
+                    </Card.Body>
+                </Card>
+            </Container>
+        );
+    }
 }
-
-=======
-import React from "react";
-import { Button, Card, Row, Col } from "react-bootstrap";
-import { useParams, Link } from "react-router-dom";
-import "./director-view.scss";
-
-export function DirectorView({movies}) {
-
-	const selectDirector = () => {
-		const { name } = useParams();
-		return movies.find((m) => m.Director.Name === name);
-	}
-
-	return (
-		<Row className="justify-content-center">
-			<Col md={8}>
-				<Card className="director-view mt-3 p-2">
-					<Card.Title>Director</Card.Title>
-					<Card.Subtitle>{selectDirector().Director.Name}</Card.Subtitle>
-					<Card.Text>{selectDirector().Director.Bio}</Card.Text>
-					<Link to={-1}>
-						<Button variant="outline-secondary mt-2">Back</Button>
-					</Link>
-				</Card>
-			</Col>
-		</Row>
-	);
-}
-
->>>>>>> 4a952d312500b67f164d060421a59facccc8e3c2
+DirectorView.propTypes = {
+    director: PropTypes.shape({
+        Name: PropTypes.string.isRequired,
+        Bio: PropTypes.string.isRequired,
+        Birth: PropTypes.string.isRequired,
+        Death: PropTypes.string,
+    }).isRequired,
+    onBackClick: PropTypes.func.isRequired,
+};
 export default DirectorView;
