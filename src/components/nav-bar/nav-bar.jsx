@@ -24,7 +24,7 @@ export function NavBar({ user }) {
 		<>
 				<Navbar className="nav mb-2" variant="dark" expand="lg">
 					<Container>
-						<Navbar.Brand href="/">Date Night Movies!</Navbar.Brand>
+						<Navbar.Brand href="/">MyFlix App!</Navbar.Brand>
 						<Navbar.Toggle aria-controls="basic-navbar-nav" />
         		<Navbar.Collapse>
 							<Nav className="align-items-start">

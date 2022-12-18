@@ -49500,7 +49500,7 @@ function NavBar({ user  }) {
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar).Brand, {
                         href: "/",
-                        children: "Date Night Movies!"
+                        children: "MyFlix App!"
                     }, void 0, false, {
                         fileName: "src/components/nav-bar/nav-bar.jsx",
                         lineNumber: 27,
