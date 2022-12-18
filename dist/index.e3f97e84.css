@@ -8,13 +8,13 @@
   background-color: #008bad;
 }
 
+.nav {
+  background-color: #008bad;
+}
+
 .text {
   color: #fff;
   text-decoration: none;
-}
-
-.nav {
-  background-color: #008bad;
 }
 
 .text-center {
@@ -25,18 +25,14 @@
 
 
 
+
+
 .register {
   color: #008bad;
 }
 
 .login {
-<<<<<<< HEAD
   color: #008bad;
-=======
-  color: #009926;
->>>>>>> 4a952d312500b67f164d060421a59facccc8e3c2
 }
-
-
 
 /*# sourceMappingURL=index.e3f97e84.css.map */
