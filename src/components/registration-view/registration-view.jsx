@@ -1,192 +1,133 @@
-import React, { useState } from 'react';
-import PropTypes from "prop-types";
-import { Form, Button, Card, CardGroup, Container, Col, Row } from 'react-bootstrap';
-import axios from 'axios';
-import { Link } from 'react-router-dom'
+import React, { useState } from "react";
+import axios from "axios";
+import { Form, Button, Container, Row, Col, Card } from "react-bootstrap";
+import './registration-view.scss'
 
 export function RegistrationView(props) {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [email, setEmail] = useState('');
-  const [birthday, setBirthday] = useState('');
 
-  const [values, setValues] = useState({
-    usernameErr: '',
-    passwordErr: '',
-    birthdayErr: '',
-    emailErr: '',
-  });
+	const [username, setUsername] = useState("");
+	const [password, setPassword] = useState("");
+	const [email, setEmail] = useState("");
+	const [birthday, setBirthday] = useState("");
+	const [usernameErr, setUsernameErr] = useState("");
+	const [passwordErr, setPasswordErr] = useState("");
+	const [emailErr, setEmailErr] = useState("");
 
-  const validate = () => {
-    let isReq = true;
-    setValues((prev) => {
-      return {
-        usernameErr: '',
-        passwordErr: '',
-        birthdayErr: '',
-        emailErr: '',
-      };
-    });
-    if (!username) {
-      // setValues re-defines values through a callback that receives
-      // the previous state of values & must return values updated
-      setValues((prevValues) => {
-        return { ...prevValues, usernameErr: 'Username is required.' };
-      });
-      isReq = false;
-    } else if (username.length < 6) {
-      setValues((prevValues) => {
-        return {
-          ...prevValues,
-          usernameErr: 'Username must be at least 6 characters long!',
-        };
-      });
-    }
-    if (!password) {
-      setValues((prevValues) => {
-        return { ...prevValues, passwordErr: 'Password is required.' };
-      });
-      isReq = false;
-    } else if (password.length < 6) {
-      setValues((prevValues) => {
-        return {
-          ...prevValues,
-          passwordErr: 'Password must be at least 6 characters long!',
-        };
-      });
-      isReq = false;
-    }
-    if (!email) {
-      setValues({
-        prevValues,
-        emailErr: 'Email is required.',
-      });
-      isReq = false;
-    } else if (email.indexOf('@') === -1) {
-      setValues((prevValues) => {
-        return { ...prevValues, emailErr: 'Enter a valid email address.' };
-      });
-      isReg = false;
-    }
-    if (!birthday) {
-      setValues((prevValues) => {
-        return { ...prevValues, birthdayErr: 'Enter a valid date.' };
-      });
-      isReq = false;
-    }
-    return isReq;
-  };
+	// validate user inputs
+	const validate = () => {
+		let isReq = true;
+		if (!username) {
+			setUsernameErr("Username Required");
+			isReq = false;
+		} else if (username.length < 2) {
+			setUsernameErr("Username must be 2 characters long");
+			isReq = false;
+		}
+		if (!password) {
+			setPasswordErr("Password Required");
+			isReq = false;
+		} else if (password.length < 4) {
+			setPasswordErr("Password must be 4 characters long");
+			isReq = false;
+		}
+		if (!email) {
+			setEmailErr("Email Required");
+			isReq = false;
+		} else if (email.indexOf("@") === -1) {
+			setEmailErr("Not a valid email address")
+			isReq = false;
+		}
+		return isReq;
+	};
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const isReq = validate();
-    if (isReq) {
-      axios
-        .post("https://myflix14.herokuapp.com/users", {
-          Username: username,   // ensure username and password are lowercase
-          Password: password,
-          Email: email,
-          Birthday: birthday,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-          window.open('/', '_self');
-        })
-        .catch((e) => {
-          console.log('error registering the user.');
-        });
-    }
-  };
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		const isReq = validate();
+		if (isReq) {
+			/* Send a request to the server */
+			axios
+				.post("https://myflix14.herokuapp.com/users", {
+					Username: username,
+					Password: password,
+					Email: email,
+					Birthday: birthday
+				})
+				.then((res) => {
+					const data = res.data;
+					alert("Registration was successful, please login");
+					window.open("/", "_self");
+				})
+				.catch((e) => {
+					console.log(e);
+					alert("unable to register");
+				});
+		}
+	};
 
-  return (
-    <Container className="py-5 h-100">
-      <Row className="d-flex justify-content-center align-items-center h-100">
-        <Col className="col-10 col-md-5 col-lg-4 col-xl-6">
-          <CardGroup>
-            <Card className="bg-dark text-white" style={{ borderRadius: '20px' }}>
-              <Card.Body className="p-5 text-center">
-                <Card.Title className="mb-4">SIGN UP</Card.Title>
-                <Form>
-                  <Form.Group className="mb-3" controlId="formUsername">
-                    <Form.Label className="text-left">Username:</Form.Label>
-                    <Form.Control
-                      className="bg-dark text-white"
-                      type="text"
-                      value={username}
-                      onChange={(event) => setUsername(event.target.value)}
-                      placeholder="Must be more than 6 characters"
-                    />
-                    {values.usernameErr && (
-                      <p className="validation-message">{values.usernameErr}</p>
-                    )}
-                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                    <Form.Control.Feedback type="invalid">Please enter a valid username</Form.Control.Feedback>
-                  </Form.Group>
+	return (
+		<Container>
+			<Row className="justify-content-center">
+			<Col className="col-xs-8 col-sm-7 col-md-6 col-lg-5">
+						<Card className="register">
+						<Card.Body>
+							<Card.Title className="text-center">Registration</Card.Title>
+							<Form>
+								<Form.Group className="mb-3" controlId="formUsername">
+									<Form.Label>Username:</Form.Label>
+									<Form.Control
+										type="text"
+										placeholder="Enter Username"
+										onChange={(e) => setUsername(e.target.value)}
+										required
+										minLength="2"
+									/>
+									{usernameErr && <p>{usernameErr}</p>}
+								</Form.Group>
 
-                  <Form.Group className="mb-3" controlId="formPassword">
-                    <Form.Label>Password:</Form.Label>
-                    <Form.Control
-                      className="bg-dark text-white"
-                      type="password"
-                      value={password}
-                      onChange={(event) => setPassword(event.target.value)}
-                      placeholder="Must be more than 6 characters"
-                    />
-                    {values.passwordErr && (
-                      <p className="validation-message">{values.passwordErr}</p>
-                    )}
-                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                    <Form.Control.Feedback type="invalid">Please enter a valid password</Form.Control.Feedback>
-                  </Form.Group>
+								<Form.Group className="mb-3" controlId="formPassword">
+									<Form.Label>Password:</Form.Label>
+									<Form.Control
+										type="password"
+										placeholder="Must be 4 or more characters"
+										onChange={(e) => setPassword(e.target.value)}
+										required
+										minLength="4"
+									/>
+									{passwordErr && <p>{passwordErr}</p>}
+								</Form.Group>
 
-                  <Form.Group className="mb-3" controlId="formEmail">
-                    <Form.Label>Email:</Form.Label>
-                    <Form.Control
-                      className="bg-dark text-white"
-                      type="email"
-                      value={email}
-                      onChange={(event) => setEmail(event.target.value)}
-                      placeholder="Enter a valid email"
-                    />
-                    {values.emailErr && (
-                      <p className="validation-message">{values.emailErr}</p>
-                    )}
-                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                    <Form.Control.Feedback type="invalid">Please enter a valid email</Form.Control.Feedback>
-                  </Form.Group>
+								<Form.Group className="mb-3" controlId="formEmail">
+									<Form.Label>Email:</Form.Label>
+									<Form.Control
+										type="email"
+										placeholder="Enter Email"
+										onChange={(e) => setEmail(e.target.value)}
+										required
+									/>
+									{emailErr && <p>{emailErr}</p>}
+								</Form.Group>
 
-                  <Form.Group className="mb-1" controlId="formBirthday">
-                    <Form.Label>Birthday:</Form.Label>
-                    <Form.Control
-                      className="bg-dark text-white"
-                      type="birthday"
-                      placeholder="MM/DD/YYYY"
-                      onChange={e => setBirthday(e.target.value)} />
-                  </Form.Group>
-                  <br></br>
-                  <Button className="mb-5" variant="primary" type="submit" onClick={handleSubmit}>
-                    Register
-                  </Button>
-                  <p className="text-white-50">Already have an account?</p>
-                  <Link to="/">
-                    Login
-                  </Link>
-                </Form>
-              </Card.Body>
-            </Card>
-          </CardGroup>
-        </Col>
-      </Row>
-    </Container >
-  )
+								<Form.Group className="mb-3" controlId="formBirthday">
+									<Form.Label>Birthday:</Form.Label>
+									<Form.Control
+										type="birthday"
+										placeholder="YYYY-MM-DD"
+										onChange={(e) => setBirthday(e.target.value)}
+									/>
+								</Form.Group>
+
+								<Button
+									variant="outline-success"
+									type="submit"
+									onClick={handleSubmit}
+								>
+									Submit
+								</Button>
+							</Form>
+						</Card.Body>
+					</Card>
+				</Col>
+			</Row>
+		</Container>
+	);
 }
-
-RegistrationView.propTypes = {
-  register: PropTypes.shape({
-    Username: PropTypes.string.isRequired,
-    Password: PropTypes.string.isRequired,
-    Email: PropTypes.string.isRequired,
-    Birthday: PropTypes.string.isRequired,
-  }),
-};
