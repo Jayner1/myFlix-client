@@ -1,41 +1,52 @@
+.movie-card {
+  background-color: #f2f2f2;
+  box-shadow: 0 .25em #0002;
+}
 
+.movie-card-img {
+  height: 28em;
+  object-fit: cover;
+  background-color: #f2f2f2;
+  padding: .5em;
+}
 
-.app-container, :root {
-  background-color: #e6e6e6;
+.movie-card-container {
+  height: 15em;
+  overflow: hidden;
+}
+
+.movie-card-title {
+  width: 100%;
+  border-bottom: 1px solid #aeaeae;
+}
+
+.btn-primary.bg-green {
+  background-color: #14b83d;
+  border: 1px solid #777;
+}
+
+.btn-primary.bg-green:hover {
+  background-color: #3d8f52;
+  border: 1px solid #fff;
+}
+
+.my-flix {
+  color: #4682b4;
 }
 
 .nav {
-  background-color: #008bad;
+  background-color: #14b83d;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 .nav {
-  background-color: #008bad;
+  background-color: #2e75af;
 }
 
-=======
->>>>>>> 4a952d312500b67f164d060421a59facccc8e3c2
-=======
->>>>>>> 4a952d312500b67f164d060421a59facccc8e3c2
 .text {
   color: #fff;
   text-decoration: none;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 4a952d312500b67f164d060421a59facccc8e3c2
-.nav {
-  background-color: #008bad;
-}
-
-<<<<<<< HEAD
->>>>>>> 4a952d312500b67f164d060421a59facccc8e3c2
-=======
->>>>>>> 4a952d312500b67f164d060421a59facccc8e3c2
 .text-center {
   text-decoration: none;
 }
@@ -44,34 +55,14 @@
 
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 4a952d312500b67f164d060421a59facccc8e3c2
-=======
->>>>>>> 4a952d312500b67f164d060421a59facccc8e3c2
 .register {
-  color: #008bad;
-}
-
-.login {
-<<<<<<< HEAD
-<<<<<<< HEAD
-  color: #008bad;
-}
-
-=======
-=======
->>>>>>> 4a952d312500b67f164d060421a59facccc8e3c2
   color: #009926;
 }
 
+.login {
+  color: #009926;
+}
 
-
-<<<<<<< HEAD
->>>>>>> 4a952d312500b67f164d060421a59facccc8e3c2
-=======
->>>>>>> 4a952d312500b67f164d060421a59facccc8e3c2
 /*# sourceMappingURL=index.e3f97e84.css.map */
