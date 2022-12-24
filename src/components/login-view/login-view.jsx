@@ -44,8 +44,8 @@ export function LoginView(props) {
 					const data = response.data;
 					props.onLoggedIn(data);
 				})
-				.catch((e) => {
-					console.log(e);
+				.catch(error => {
+					console.log(error.response)
 				});
 		}
 	};
