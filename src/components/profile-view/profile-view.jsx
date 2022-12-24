@@ -48,7 +48,7 @@ export function ProfileView({ movies, user }) {
 	const getUser = () => {
 		const token = localStorage.getItem("token");
 		axios
-			.get(`https://myflix14.herokuapp.com/users/${user}`, {
+			.get(`https://movie-api-08ww.onrender.com/users/${user}`, {
 				headers: { Authorization: `Bearer ${token}` },
 			})
 			.then((response) => {
@@ -67,7 +67,7 @@ export function ProfileView({ movies, user }) {
 		const token = localStorage.getItem("token");
 
 		axios
-				.delete(`https://myflix14.herokuapp.com/users/${user}`, {
+				.delete(`https://movie-api-08ww.onrender.com/users/${user}`, {
 					headers: { Authorization: `Bearer ${token}` },
 				})
 				.then((response) => {
@@ -85,7 +85,7 @@ export function ProfileView({ movies, user }) {
 		if (isReq) {
 			/* Send a request to the server */
 			axios
-				.put(`https://myflix14.herokuapp.com/users/${user}`, {
+				.put(`https://movie-api-08ww.onrender.com/users/${user}`, {
 					Username: username,
 					Password: password,
 					Email: email,

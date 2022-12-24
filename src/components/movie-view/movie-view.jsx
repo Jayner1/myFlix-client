@@ -15,7 +15,7 @@ export function MovieView({movies}) {
 
 	const addFav = (movieId) => {
 		let token = localStorage.getItem("token");
-		let url = `https://myflix14.herokuapp.com/users/${localStorage.getItem(
+		let url = `https://movie-api-08ww.onrender.com/users/${localStorage.getItem(
 				"user")}/movies/${movieId}`;
 			axios.put(url, null, {
 				headers: { Authorization: `Bearer ${token}` },

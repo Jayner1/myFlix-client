@@ -46,7 +46,7 @@ export function RegistrationView(props) {
 		if (isReq) {
 			/* Send a request to the server */
 			axios
-				.post("https://myflix14.herokuapp.com/users", {
+				.post("https://movie-api-08ww.onrender.com/users", {
 					Username: username,
 					Password: password,
 					Email: email,

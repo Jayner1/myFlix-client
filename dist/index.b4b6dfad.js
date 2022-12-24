@@ -28219,8 +28219,8 @@ var _reselect = require("reselect");
 // src/getDefaultMiddleware.ts
 var _reduxThunk = require("redux-thunk");
 var _reduxThunkDefault = parcelHelpers.interopDefault(_reduxThunk);
-var global = arguments[3];
 var process = require("process");
+var global = arguments[3];
 var __extends = undefined && undefined.__extends || function() {
     var extendStatics = function(d, b) {
         extendStatics = Object.setPrototypeOf || ({
@@ -33800,7 +33800,7 @@ function MainView() {
         getMovies(authData.token);
     };
     const getMovies = (token)=>{
-        (0, _axiosDefault.default).get("https://myflix14.herokuapp.com/movies", {
+        (0, _axiosDefault.default).get("https://movie-api-08ww.onrender.com/movies", {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -48134,7 +48134,7 @@ function LoginView(props) {
     const handleSubmit = (e)=>{
         e.preventDefault();
         const isReq = validate();
-        if (isReq) /* Send a request to the server for authentication */ (0, _axiosDefault.default).post("https://myflix14.herokuapp.com/login", {
+        if (isReq) /* Send a request to the server for authentication */ (0, _axiosDefault.default).post("https://movie-api-08ww.onrender.com/login", {
             Username: username,
             Password: password
         }).then((response)=>{
@@ -48349,7 +48349,7 @@ function RegistrationView(props) {
     const handleSubmit = (e)=>{
         e.preventDefault();
         const isReq = validate();
-        if (isReq) /* Send a request to the server */ (0, _axiosDefault.default).post("https://myflix14.herokuapp.com/users", {
+        if (isReq) /* Send a request to the server */ (0, _axiosDefault.default).post("https://movie-api-08ww.onrender.com/users", {
             Username: username,
             Password: password,
             Email: email,
@@ -48598,7 +48598,7 @@ function MovieView({ movies  }) {
     const movieId = selectMovie()._id;
     const addFav = (movieId)=>{
         let token = localStorage.getItem("token");
-        let url = `https://myflix14.herokuapp.com/users/${localStorage.getItem("user")}/movies/${movieId}`;
+        let url = `https://movie-api-08ww.onrender.com/users/${localStorage.getItem("user")}/movies/${movieId}`;
         (0, _axiosDefault.default).put(url, null, {
             headers: {
                 Authorization: `Bearer ${token}`
@@ -49015,7 +49015,7 @@ function ProfileView({ movies , user  }) {
     };
     const getUser = ()=>{
         const token = localStorage.getItem("token");
-        (0, _axiosDefault.default).get(`https://myflix14.herokuapp.com/users/${user}`, {
+        (0, _axiosDefault.default).get(`https://movie-api-08ww.onrender.com/users/${user}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -49031,7 +49031,7 @@ function ProfileView({ movies , user  }) {
     };
     const deleteUser = ()=>{
         const token = localStorage.getItem("token");
-        (0, _axiosDefault.default).delete(`https://myflix14.herokuapp.com/users/${user}`, {
+        (0, _axiosDefault.default).delete(`https://movie-api-08ww.onrender.com/users/${user}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -49045,7 +49045,7 @@ function ProfileView({ movies , user  }) {
     const handleSubmit = (e)=>{
         e.preventDefault();
         const isReq = validate();
-        if (isReq) /* Send a request to the server */ (0, _axiosDefault.default).put(`https://myflix14.herokuapp.com/users/${user}`, {
+        if (isReq) /* Send a request to the server */ (0, _axiosDefault.default).put(`https://movie-api-08ww.onrender.com/users/${user}`, {
             Username: username,
             Password: password,
             Email: email,
@@ -49389,7 +49389,7 @@ function FavoriteMovies({ movie  }) {
     const removeFav = (id)=>{
         let token = localStorage.getItem("token");
         let user = localStorage.getItem("user");
-        let url = `https://myflix14.herokuapp.com/users/${user}/movies/${movie._id}`;
+        let url = `https://movie-api-08ww.onrender.com/users/${user}/movies/${movie._id}`;
         (0, _axiosDefault.default).delete(url, {
             headers: {
                 Authorization: `Bearer ${token}`

@@ -38,7 +38,7 @@ function MainView() {
 
   const getMovies = (token) => {
     axios
-      .get("https://myflix14.herokuapp.com/movies", {
+      .get("https://movie-api-08ww.onrender.com/movies", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {

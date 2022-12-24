@@ -36,7 +36,7 @@ export function LoginView(props) {
 		if (isReq) {
 			/* Send a request to the server for authentication */
 			axios
-				.post("https://myflix14.herokuapp.com/login", {
+				.post("https://movie-api-08ww.onrender.com/login", {
 					Username: username,
 					Password: password
 				})

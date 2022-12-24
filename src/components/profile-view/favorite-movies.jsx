@@ -9,7 +9,7 @@ function FavoriteMovies({ movie }) {
 	const removeFav = (id) => {
 		let token = localStorage.getItem('token');
 		let user = localStorage.getItem('user');
-		let url = `https://myflix14.herokuapp.com/users/${user}/movies/${movie._id}`;
+		let url = `https://movie-api-08ww.onrender.com/users/${user}/movies/${movie._id}`;
 		axios.delete(url, {
 			headers: { Authorization: `Bearer ${token}` }
 		})
