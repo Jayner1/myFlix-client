@@ -16,7 +16,7 @@ export class MovieCard extends React.Component {
         <Row className="py-3">
           <Col className="sm-3 d-flex">
             <Card className="bg-dark text-white vh-500">
-              <Card.Img variant="top" src={movie.ImagePath} crossOrigin="anonymous" />
+              <Card.Img variant="top" src={movie.ImagePath} crossOrigin="" />
               <Card.Body>
                 <Card.Title>{movie.Title}</Card.Title>
                 <Card.Text className="text-white-50">{movie.Director.Name}</Card.Text>
