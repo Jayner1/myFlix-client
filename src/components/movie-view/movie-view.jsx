@@ -24,6 +24,7 @@ export function MovieView({movies}) {
         alert("Movie Added to Favorites");
         })
       .catch((error) => {
+		
         console.log(error);
       });
 	};
