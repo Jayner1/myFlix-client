@@ -95,6 +95,7 @@ export function ProfileView({ movies, user }) {
 			})
 				.then((response) => {
 					const data = response.data;
+					localStorage.setItem ("user", data.Username)
 					console.log(data);
 					getUser();
 					alert("Profile is updated");
